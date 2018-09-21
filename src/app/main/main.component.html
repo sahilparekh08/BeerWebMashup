@@ -1,0 +1,37 @@
+<h2 style="text-align: center">WEB MASHUP</h2>
+<div class = "container" *ngIf="beerSearch == false">
+  <h2>PUNK API (BEER LIST)</h2>
+  <table id="user">
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Unit</th>
+      <th>Wikipedia Search</th>
+    </tr>
+    <tr *ngFor="let ingredient of ingredients1">
+      <td>{{ ingredient.name }}</td>
+      <td>{{ ingredient.amount.value }}</td>
+      <td>{{ ingredient.amount.unit }}</td>
+      <td><button id="btn1" (click)="Search1()">SEARCH</button></td>
+    </tr>
+    <tr *ngFor="let ingredient of ingredients2">
+      <td>{{ ingredient.name }}</td>
+      <td>{{ ingredient.amount.value }}</td>
+      <td>{{ ingredient.amount.unit }}</td>
+      <td><button id="btn1" (click)="Search2()">SEARCH</button></td>
+    </tr>
+  </table>
+</div>
+<div class="container" *ngIf="beerSearch != false">
+  <h2>WIKIPEDIA API</h2>
+  <table id="user">
+    <tr>
+      <th>Pageid</th>
+      <th>Extract</th>
+    </tr>
+    <tr *ngFor="let page of temp">
+      <td>{{ page.pageid }}</td>
+      <td [innerHTML]="page.snippet"></td>
+    </tr>
+  </table>
+</div>
